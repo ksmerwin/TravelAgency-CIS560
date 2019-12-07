@@ -7,19 +7,19 @@ namespace DataModeling
 {
     public class RestaurantsGetRestaurantReservationDelegate : DataReaderDelegate<RestaurantReservation>
     {
-        private readonly int restaurantID;
+        private readonly int reservationID;
 
-        public RestaurantsGetRestaurantReservationDelegate(int restaurantID)
-           : base("Restaurants.GetRestaurantReservationt")
+        public RestaurantsGetRestaurantReservationDelegate(int reservationID)
+           : base("Restaurants.GetRestaurantReservation")
         {
-            this.restaurantID = restaurantID;
+            this.reservationID = reservationID;
         }
 
         public override void PrepareCommand(SqlCommand command)
         {
             base.PrepareCommand(command);
 
-            command.Parameters.AddWithValue("RestaurantID", restaurantID);
+            command.Parameters.AddWithValue("ReservationID", reservationID);
         }
 
         public override RestaurantReservation Translate(SqlCommand command, IDataRowReader reader)
@@ -29,7 +29,7 @@ namespace DataModeling
 
             return new RestaurantReservation(reader.GetInt32("ReservationID"),
                reader.GetDateTime("ReservationDate"),
-               restaurantID);
+               reservationID);
         }
     }
 }

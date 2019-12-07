@@ -6,5 +6,5 @@ AS
 
 SELECT C.CityID
 FROM [Location].Cities C
-WHERE C.[Name] = @CityName and @Region =C.Region and @Country =  C.Country
+WHERE C.[CityName] = @CityName and @Region =C.Region and @Country =  C.Country
 GO

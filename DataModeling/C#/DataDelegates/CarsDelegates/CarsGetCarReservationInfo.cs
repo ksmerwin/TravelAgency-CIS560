@@ -31,7 +31,7 @@ namespace DataModeling
                reader.GetInt32("CarRentalID"),
                reader.GetDateTime("RentalDate"),
                reader.GetString("Model"),
-               reader.GetFloat("Price")
+               reader.GetDouble("Price")
                );
         }
     }

@@ -55,8 +55,5 @@
     <Compile Include="RecordNotFoundException.cs" />
     <Compile Include="SqlCommandExecutor.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="BuildDatabase\RebuildDatabase.ps1" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

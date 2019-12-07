@@ -14,9 +14,9 @@ namespace DataModeling.Model
 
         public DateTime TicketDate { get; }
 
-        public float Price { get; }
+        public double Price { get; }
 
-        public AttractionTicket(int reservationID, int attractionID, DateTime ticketDate, float price)
+        public AttractionTicket(int reservationID, int attractionID, DateTime ticketDate, double price)
         {
             ReservationID = reservationID;
             AttractionID = attractionID;
@@ -30,7 +30,7 @@ namespace DataModeling.Model
 
         public string ReservationInfo()
         {
-            return "Attraction Ticket " + AttractionID + ", Attraction " + AttractionID + ", $" + Price + ", " + TicketDate.Date; 
+            return "Attraction Ticket\n\t" + ReservationID + ", Attraction " + AttractionID + ", $" + Price + ", " + TicketDate.Date; 
         }
     }
 }

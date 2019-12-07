@@ -11,4 +11,5 @@ SELECT
 	FL.CityDepartureID,
 	FL.CityArrivalID	
 FROM Airlines.Flight FL
-WHERE FL.FlightID = @FlightID
+WHERE FL.FlightID = @FlightID;
+GO

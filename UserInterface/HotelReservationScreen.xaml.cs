@@ -51,8 +51,6 @@ namespace UserInterface
             string message = "";
             if(Check.ValidPositiveInt("Hotel ID", uxHotelID.Text, out message))
             {
-                // CONNECT
-
                 SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
 
                 int hotelID = int.Parse(uxHotelID.Text);
@@ -62,30 +60,19 @@ namespace UserInterface
 
                 if (hotel == null)
                 {
-                    MessageBox.Show("Hotel ID does not exist");
+                    MessageBox.Show("Hotel does not exist");
                 }
                 else
                 {
                     
                         uxHotelName.Text = hotel.Name;
-                        uxHotelName.Text = hotel.FullAddress;
-                    City city = executor.ExecuteNonQuery(new LocationCreateCityDelegate(hotel.CityID));
+                        uxHotelAddress.Text = hotel.FullAddress;
+
+                        City city = executor.ExecuteReader(new LocationGetCityByCityIdDelegate(hotel.CityID));
                     
                         uxCity.Text = city.CityName; 
                         uxRegion.Text = city.Region;
                         uxCountry.Text = city.Country;
-                    
-              
-                    // if null
-                    //      MessageBox.Show("Hotel ID does not already exist");
-                    // else
-                    // Hotel hotel = found hotel
-                    // City city = findCity(hotel.CityID);
-                //uxHotelName.Text = ""; // = hotel.Name;
-                //uxHotelAddress.Text = ""; // = hotel.Address;
-                //uxCity.Text = ""; // = city.CityName;
-                //uxRegion.Text = ""; // = city.Region;
-                //uxCountry.Text = ""; // = city.Country;
                 }
             }
             else
@@ -113,62 +100,34 @@ namespace UserInterface
                 float roomPrice = float.Parse(uxRoomPrice.Text);
                 DateTime checkInDate = (DateTime)uxCheckinDate.SelectedDate;
 
-                // CONNECT
-
                 int cityID = 0;
                 SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
 
-                City citysearch = executor.ExecuteReader(new LocationGetCityDelegate(country, region, cityname));
+                City citysearch = executor.ExecuteReader(new LocationGetCityDelegate(cityname, country, region));
 
                 if (citysearch == null)
                 {
-                    City city = executor.ExecuteNonQuery(new LocationCreateCityDelegate(cityname,region, country));
+                    City city = executor.ExecuteNonQuery(new LocationCreateCityDelegate(cityname, region, country));
                     cityID = city.CityID;
                 }
                 else
                 {
                     cityID = citysearch.CityID;
                 }
-                //Lookup city using country, region, city
-                // if null
-                //      create city
-                //      cityID = newly created city
-                // else
-                //      cityID = found city
-
-                // CONNECT
+                
                 int hotelID = 0;
-
-                Hotel hotelsearch = executor.ExecuteReader(new HotelsGetHotelDelegate(hotelID));
+                Hotel hotelsearch = executor.ExecuteReader(new HotelsFetchHotelDelegate(hotelName, cityID, address));
                 if (hotelsearch == null)
                 {
-                    Hotel hotel = executor.ExecuteNonQuery(new HotelsCreateHotelDelegate(hotelID));
+                    Hotel hotel = executor.ExecuteNonQuery(new HotelsCreateHotelDelegate(hotelName, cityID, address));
                     hotelID = hotel.HotelID;
                 }
                 else
                 {
                     hotelID = hotelsearch.HotelID;
-                }
-                //Lookup hotel using hotelName, address, and cityID
-                // if null
-                //      create hotel
-                //      hotelID = newly created hotel
-                // else
-                //      hotelID = found hotel
+                }                
 
-                // CONNECT
-                int reservationID = 0;
-
-                Reservation res = executor.ExecuteNonQuery(new CreateReservationDelegate(tripID,false, true, false, false, false));
-                reservationID = res.ReservationID;
-
-                HotelReservation hr = executor.ExecuteNonQuery(new HotelsCreateHotelReservationDelegate(reservationID, hotelID, checkInDate, roomPrice));
-
-                // Create new reservation, using tripID (field), and set hotel reservation to 1, and all others to 0
-                // reservationID = newly created reservation ID
-
-                // CONNECT
-                // Create new hotel reservation using reservationID, hotelID, checkInDate, roomPrice
+                HotelReservation hr = executor.ExecuteNonQuery(new HotelsCreateHotelReservationDelegate(tripID, hotelID, checkInDate, roomPrice));
 
                 MessageBox.Show("Reservation at " + hotelName + " successfully added");
             }
@@ -181,7 +140,7 @@ namespace UserInterface
         /// <param name="args"></param>
         public void Done_Click(object sender, RoutedEventArgs args)
         {
-            NavigationService.GoBack();
+            NavigationService.Navigate(new PlanTripScreen(connectionString, tripID, uxCountry.Text, uxRegion.Text, uxCity.Text));
         }
 
         /// <summary>

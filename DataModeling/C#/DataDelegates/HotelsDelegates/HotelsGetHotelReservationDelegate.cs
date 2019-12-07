@@ -29,8 +29,8 @@ namespace DataModeling
 
             return new HotelReservation(reservationId,
                reader.GetInt32("HotelID"),
-               reader.GetDateTime("DateOfReservation"),
-               reader.GetFloat("Price"));
+               reader.GetDateTime("CheckInDate"),
+               reader.GetDouble("Price"));
         }
     }
 }

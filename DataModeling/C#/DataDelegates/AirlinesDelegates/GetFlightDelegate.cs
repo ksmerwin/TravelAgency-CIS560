@@ -16,7 +16,7 @@ namespace DataModeling
         
 
         public GetFlightDelegate(string airlineName, System.DateTime departureTime, int departureCityID, System.DateTime arrivalTime, int arrivalCityID)
-           : base("Location.RetrieveFlightInfo")
+           : base("Airlines.GetFlight")
         {
             this.AirlineName = airlineName;
             this.DepartureTime = departureTime;

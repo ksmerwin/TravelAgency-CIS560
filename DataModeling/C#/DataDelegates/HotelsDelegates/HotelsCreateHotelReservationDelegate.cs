@@ -7,15 +7,15 @@ namespace DataModeling
 {
     public class HotelsCreateHotelReservationDelegate : NonQueryDataDelegate<HotelReservation>
     {
-        public readonly int reservationID;
+        public readonly int tripID;
         public readonly int hotelID;
         public readonly System.DateTime checkindate;
         public readonly float price;
 
-        public HotelsCreateHotelReservationDelegate(int reservationID, int hotelID, System.DateTime checkInDate, float roomPrice)
-            : base("Hotels.CreateHotel")
+        public HotelsCreateHotelReservationDelegate(int tripID, int hotelID, System.DateTime checkInDate, float roomPrice)
+            : base("Hotels.CreateHotelReservation")
         {
-            this.reservationID = reservationID;
+            this.tripID = tripID;
             this.hotelID = hotelID;
             this.checkindate = checkInDate;
             this.price = roomPrice;
@@ -25,11 +25,10 @@ namespace DataModeling
         {
             base.PrepareCommand(command);
 
-            command.Parameters.AddWithValue("ReservationID", reservationID);
+            command.Parameters.AddWithValue("TripID", tripID);
             command.Parameters.AddWithValue("HotelID", hotelID);
             command.Parameters.AddWithValue("CheckInDate", checkindate);
             command.Parameters.AddWithValue("Price", price);
-
 
             var p = command.Parameters.Add("ReservationID", SqlDbType.Int);
             p.Direction = ParameterDirection.Output;

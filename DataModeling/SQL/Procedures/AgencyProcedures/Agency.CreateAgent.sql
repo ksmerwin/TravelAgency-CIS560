@@ -4,7 +4,7 @@
 	@Salary FLOAT
 AS
 
-INSERT Agency.Agent([Name], Salary)
+INSERT Agency.Agents([Name], Salary)
 VALUES (@Name, @Salary)
 
 SET @AgentID = SCOPE_IDENTITY();

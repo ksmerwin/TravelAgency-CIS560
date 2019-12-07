@@ -1,4 +1,4 @@
-﻿CREATE OR ALTER PROCEDURE Cars.GetAgencyByID
+﻿CREATE OR ALTER PROCEDURE Cars.GetAgencyByName
 	@AgencyName NVARCHAR(120),
 	@CityID  int
 AS

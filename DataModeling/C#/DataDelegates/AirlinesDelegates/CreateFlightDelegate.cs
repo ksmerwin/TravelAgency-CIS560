@@ -2,6 +2,7 @@
 using System.Data;
 using System.Data.SqlClient;
 using DataModeling.Model;
+using System;
 
 namespace DataModeling
 {
@@ -9,23 +10,25 @@ namespace DataModeling
     {
         public readonly int flightID;
         public readonly string airlinename;
-        public readonly System.DateTime departuretime;
-        public readonly System.DateTime arrivaltime;
+        public readonly DateTime departuretime;
+        public readonly DateTime arrivaltime;
         public readonly int citydepartureID;
         public readonly int cityarrivalID;
-        public readonly System.DateTime date;
 
-        public CreateFlightDelegate(int FlightID)
+        public CreateFlightDelegate(string airlineName, DateTime departureTime, DateTime arrivalTime, int cityDepartureID, int cityArrivalID)
             : base("Airlines.CreateFlight")
         {
-            this.flightID = FlightID;
+            this.airlinename = airlineName;
+            this.departuretime = departureTime;
+            this.arrivaltime = arrivalTime;
+            this.cityarrivalID = cityArrivalID;
+            this.citydepartureID = cityDepartureID;
         }
 
         public override void PrepareCommand(SqlCommand command)
         {
             base.PrepareCommand(command);
 
-            command.Parameters.AddWithValue("FlightID", flightID);
             command.Parameters.AddWithValue("AirlineName", airlinename);
             command.Parameters.AddWithValue("DepartureTime", departuretime);
             command.Parameters.AddWithValue("ArrivalTime", arrivaltime);

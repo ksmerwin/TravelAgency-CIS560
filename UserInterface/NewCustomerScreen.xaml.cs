@@ -37,7 +37,7 @@ namespace UserInterface
         /// <param name="args"></param>
         public void Done_Click(object sender, RoutedEventArgs args)
         {
-            NavigationService.GoBack();
+            NavigationService.Navigate(new TripSetupScreen(connectionString));
         }
 
         /// <summary>

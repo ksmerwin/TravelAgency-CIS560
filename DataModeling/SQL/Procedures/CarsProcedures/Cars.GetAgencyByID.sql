@@ -2,7 +2,7 @@
 	@CarRentalID INT
 AS
 
-SELECT  CC.AgencyName, CC.CityID
+SELECT  CC.CarRentalID, CC.AgencyName, CC.CityID
 FROM  Cars.CarRental CC 
-where CC.CarRentalID = @CarRentalID
+WHERE CC.CarRentalID = @CarRentalID;
 GO

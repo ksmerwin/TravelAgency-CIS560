@@ -45,14 +45,12 @@ namespace UserInterface
                 int agentID = 0;
                 string fullName = Check.FormatName(uxAgentFirstName.Text) + " " + Check.FormatName(uxAgentLastName.Text);
                 float salary = float.Parse(uxSalary.Text);
+
                 SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
                 AgencyCreateAgentDelegate createsAgent = new AgencyCreateAgentDelegate(fullName, salary);
                 Agent agent = executor.ExecuteNonQuery(createsAgent);
                 agentID = agent.AgentID;
-                /* Not sure if this is necessary
-                AgencyGetAgentDelegate getsAgent = new AgencyGetAgentDelegate(agentID);
-                Agent a = executor.ExecuteNonQuery(agent);
-                */
+                
 
                 MessageBox.Show("Agent " + fullName + " successfully added. Agent ID = " + agentID);
             }
@@ -60,7 +58,7 @@ namespace UserInterface
 
         public void Done_Click(object sender, RoutedEventArgs args)
         {
-            NavigationService.GoBack();
+            NavigationService.Navigate(new TripSetupScreen(connectionString));
         }
 
         /// <summary>

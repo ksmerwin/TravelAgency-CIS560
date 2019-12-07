@@ -12,17 +12,18 @@ namespace DataModeling
         public readonly string name;
         public readonly int cityID;
 
-        public HotelsCreateHotelDelegate(int HotelID)
+        public HotelsCreateHotelDelegate(string name, int cityID, string fulladdress)
             :base("Hotels.CreateHotel")
         {
-            this.hotelID = HotelID;
+            this.name = name;
+            this.cityID = cityID;
+            this.fulladdress = fulladdress;
         }
 
         public override void PrepareCommand(SqlCommand command)
         {
             base.PrepareCommand(command);
-
-            command.Parameters.AddWithValue("HotelID", hotelID);
+            
             command.Parameters.AddWithValue("CityID", cityID);
             command.Parameters.AddWithValue("Name", name);
             command.Parameters.AddWithValue("FullAddress", fulladdress);

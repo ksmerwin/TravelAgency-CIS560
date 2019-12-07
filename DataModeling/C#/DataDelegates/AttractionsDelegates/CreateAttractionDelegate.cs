@@ -9,7 +9,6 @@ namespace DataModeling
     {
         public readonly string name;
         public readonly int cityID;
-        private readonly string attractionID;
 
         public CreateAttractionDelegate(string name, int cityID)
            : base("Attractions.CreateAttraction")
@@ -22,7 +21,7 @@ namespace DataModeling
         {
             base.PrepareCommand(command);
 
-            command.Parameters.AddWithValue("FirstName", name);
+            command.Parameters.AddWithValue("Name", name);
             command.Parameters.AddWithValue("CityID", cityID);
 
             var p = command.Parameters.Add("AttractionID", SqlDbType.Int);

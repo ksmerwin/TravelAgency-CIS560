@@ -7,14 +7,14 @@ namespace DataModeling
 {
     public class CreateBoardingPassDelegate : NonQueryDataDelegate<BoardingPass>
     {
-        public readonly int reservationID;
+        public readonly int tripID;
         public readonly int flightID;
-        public readonly float price;
+        public readonly double price;
 
-        public CreateBoardingPassDelegate(int reservationID, int flightID, float Price)
+        public CreateBoardingPassDelegate(int tripID, int flightID, double Price)
             : base("Airlines.CreateBoardingPass")
         {
-            this.reservationID = reservationID;
+            this.tripID = tripID;
             this.flightID = flightID;
             this.price = Price;
         }
@@ -23,7 +23,7 @@ namespace DataModeling
         {
             base.PrepareCommand(command);
 
-            command.Parameters.AddWithValue("ReservationID", reservationID);
+            command.Parameters.AddWithValue("TripID", tripID);
             command.Parameters.AddWithValue("FlightID", flightID);
             command.Parameters.AddWithValue("Price", price);
 

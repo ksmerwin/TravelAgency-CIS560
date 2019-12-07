@@ -14,9 +14,9 @@ namespace DataModeling.Model
 
         public DateTime CheckinDate { get; }
 
-        public float Price { get; }
+        public double Price { get; }
 
-        public HotelReservation(int reservationID, int hotelID, DateTime checkinDate, float price)
+        public HotelReservation(int reservationID, int hotelID, DateTime checkinDate, double price)
         {
             ReservationID = reservationID;
             HotelID = hotelID;
@@ -31,7 +31,7 @@ namespace DataModeling.Model
 
         public string ReservationInfo()
         {
-            return $"Hotel Reservation {ReservationID}, Hotel {HotelID}, ${Price}, {CheckinDate.Date}";
+            return $"Hotel Reservation\n\t{ReservationID}, Hotel {HotelID}, ${Price}, {CheckinDate.Date}";
         }
     }
 }

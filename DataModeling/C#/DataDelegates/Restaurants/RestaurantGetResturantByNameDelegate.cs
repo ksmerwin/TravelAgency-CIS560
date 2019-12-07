@@ -21,7 +21,7 @@ namespace DataModeling
         {
             base.PrepareCommand(command);
 
-            command.Parameters.AddWithValue("ReservationName", restaurantName);
+            command.Parameters.AddWithValue("Name", restaurantName);
             command.Parameters.AddWithValue("CityID", cityID);
 
         }

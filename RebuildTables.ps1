@@ -47,15 +47,17 @@ Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeli
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Data\HotelsData.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Data\FlightsData.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Data\AttractionsData.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Data\RestaurantsData.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Data\CarRentalAgencysData.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Data\ReservationsData.sql"
 
 Write-Host "Creating Agency Create procedures..."
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\AgencyProcedures\Agency.CreateAgent.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\AgencyProcedures\Agency.CreateAttractionTicket.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\AgencyProcedures\Agency.CreateBoardingPass.sql"
-Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\AgencyProcedures\Agency.CreateCarRentalReservation.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\AgencyProcedures\Agency.CreateContactInfo.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\AgencyProcedures\Agency.CreateCustomer.sql"
-Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\AgencyProcedures\Agency.CreateHotelReservation.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\AgencyProcedures\Agency.CreateReservation.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\AgencyProcedures\Agency.CreateRestaurantReservation.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\AgencyProcedures\Agency.CreateTrip.sql"
 
@@ -65,6 +67,8 @@ Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeli
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\AgencyProcedures\Agency.GetCustomer.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\AgencyProcedures\Agency.GetCustomers.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\AgencyProcedures\Agency.GetTrip.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\AgencyProcedures\Agency.GetTrips.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\AgencyProcedures\Agency.GetReservations.sql"
 
 Write-Host "Creating Agency Retrieve procedures..."
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\AgencyProcedures\Agency.RetrieveAgentTrips.sql"
@@ -78,16 +82,22 @@ Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeli
 Write-Host "Creating Airlines procedures..."
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\AirlinesProcedures\Airlines.CreateBoardingPass.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\AirlinesProcedures\Airlines.CreateFlight.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\AirlinesProcedures\Airlines.GetFlight.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\AirlinesProcedures\Airlines.GetBoardingPass.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\AirlinesProcedures\Airlines.RetrieveFlightInfo.sql"
 
 Write-Host "Creating Attractions procedures..."
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\AttractionsProcedures\Attractions.CreateAttraction.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\AttractionsProcedures\Attractions.CreateAttractionTicket.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\AttractionsProcedures\Attractions.GetAttraction.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\AttractionsProcedures\Attractions.GetAttractionTicket.sql"
 
 Write-Host "Creating Cars procedures..."
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\CarsProcedures\Cars.CreateCarRental.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\CarsProcedures\Cars.CreateCarRentalReservation.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\CarsProcedures\Cars.GetAgencyName.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\CarsProcedures\Cars.GetAgencyByName.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\CarsProcedures\Cars.GetAgencyByID.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\CarsProcedures\Cars.GetCarReservationInfo.sql"
 
 Write-Host "Creating Hotels procedures..."
@@ -95,6 +105,7 @@ Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeli
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\HotelsProcedures\Hotels.CreateHotelReservation.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\HotelsProcedures\Hotels.GetHotel.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\HotelsProcedures\Hotels.GetHotelReservation.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\HotelsProcedures\Hotels.FetchHotel.sql"
 
 Write-Host "Creating Location procedures..."
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\LocationProcedures\Location.CreateCity.sql"
@@ -103,7 +114,9 @@ Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeli
 
 Write-Host "Creating Restaurant procedures..."
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\RestaurantsProcedures\Restaurants.CreateRestaurant.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\RestaurantsProcedures\Restaurants.CreateRestaurantReservation.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\RestaurantsProcedures\Restaurants.GetRestaurant.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\RestaurantsProcedures\Restaurants.GetRestaurantByName.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\RestaurantsProcedures\Restaurants.GetRestaurantReservation.sql"
 
 Write-Host "Creating Report procedures..."

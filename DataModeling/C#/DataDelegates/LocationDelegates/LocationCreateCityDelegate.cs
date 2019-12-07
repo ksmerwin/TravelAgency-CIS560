@@ -36,7 +36,7 @@ namespace DataModeling
 
         public override City Translate(SqlCommand command)
         {
-            return new City((int)command.Parameters["Cities"].Value, cityname, region, country);
+            return new City((int)command.Parameters["CityID"].Value, cityname, region, country);
         }
 
     }

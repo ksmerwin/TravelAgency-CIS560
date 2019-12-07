@@ -31,7 +31,7 @@ namespace DataModeling
             if (!reader.Read())
                 return null;
 
-            return new BoardingPass(reservationID, reader.GetInt32("FlightID"), reader.GetFloat("Price"));
+            return new BoardingPass(reservationID, reader.GetInt32("FlightID"), reader.GetDouble("Price"));
         }
     }
 }
