@@ -1,4 +1,7 @@
-﻿CREATE OR ALTER PROCEDURE Attractions.GetAttraction
+﻿/*
+	Gets the attraction given its id
+*/
+CREATE OR ALTER PROCEDURE Attractions.GetAttraction
 	@AttractionID INT
 AS
 

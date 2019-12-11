@@ -1,3 +1,6 @@
+/*
+	Gets a trip given the trip id
+*/
 CREATE OR ALTER PROCEDURE Agency.FetchTrip
 	@TripID INT
 AS

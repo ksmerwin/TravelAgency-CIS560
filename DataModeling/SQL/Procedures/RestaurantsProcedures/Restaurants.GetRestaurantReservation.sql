@@ -1,4 +1,7 @@
-﻿CREATE OR ALTER PROCEDURE Restaurants.GetRestaurantReservation
+﻿/*
+	Gets restaurant reservation given its id
+*/
+CREATE OR ALTER PROCEDURE Restaurants.GetRestaurantReservation
 	@ReservationID INT
 AS
 

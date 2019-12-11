@@ -1,5 +1,6 @@
-﻿USE TravelAgency;
-GO
+﻿/*
+	Report query: Aggregates customers into three age categories, "Young Adult," "Middle Aged", and "Senior."
+*/
 CREATE OR ALTER PROC Agency.AgeReport
 AS
 SELECT 

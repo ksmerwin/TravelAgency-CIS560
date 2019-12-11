@@ -1,3 +1,6 @@
+/*
+	Gets an agent given their id
+*/
 CREATE OR ALTER PROCEDURE Agency.GetAgent
 	@AgentID INT
 AS

@@ -2,7 +2,7 @@
 USE TravelAgency;
 GO
 
-INSERT Agency.Agents([Name], Salary) 
+INSERT Agency.Agents([Name], Salary) -- Count 100
 VALUES ('Ingrid Welch', 60000.0),
 ('Lila Mitchell', 63000.0),('Minerva Dudley', 65000.0),
 ('Elijah Lewis', 40000.0),('Forrest Kerr', 20000.0),
@@ -25,4 +25,33 @@ VALUES ('Ingrid Welch', 60000.0),
 ('Dennis Greene', 64000.0),('Kyle Mills', 36000.0),
 ('Rana Barton', 54000.0),('Brock Gray', 62000.0),
 ('Ahmed Owens', 36000.0),('Maggie Buckley', 32000.0),
-('Melinda Blevins', 43000.0),('Lee Hansen', 21000.0);
+('Melinda Blevins', 43000.0),('Lee Hansen', 21000.0),
+('Sasha Stokes', 50000.0),('Maryam Fields',46000.0),
+('Felix Cochran',56000.0),('Eric Montgomery',67000.0),
+('Neve Buckner', 76000.0),('Leo Mosley', 45000.0),
+('Clarke Pitts',34000.0),('Kylie Reeves',65000.0),
+('Kameko Dudley',47000.0),('Bevis Moses',73000.0),
+('Phoebe Landry',56000.0),('Zelenia Hensley',48000.0),
+('Sawyer Fulton',47000.0),('Adrian Hendrix', 63000.0),
+('Gannon Durham',27000.0),('Ferdinand Cabrera', 81000.0),
+('Tatiana Best',70000.0),('Quyn Sloan',35000.0),
+('Igor Allen',55000.0),('Eaton Collier',64000.0),
+('Eve Hyde',74000.0),('Justina Mcdowell',45000.0),
+('Gisela Brock',38000.0),('Sybil Dickson',86000.0),
+('Shoshana Lancaster',41000.0),('Burton Conrad',72000.0),
+('Cole Howe',66000.0),('Amena Tran',24000.0),
+('Jordan Short',63000.0),('Reuben Crawford',91000.0),
+('Tarik Hawkins',34000.0),('Aretha Bauer',53000.0),
+('Alika Elliott',24000.0),('Imani Valenzuela',56000.0),
+('Lucy Beach',43000.0),('Hiram Tyson',36000.0),
+('Cooper Wilkins',90000.0),('Keaton Curry',64000.0),
+('Sigourney Barlow',52000.0),('Nathan Rush',51000.0),
+('Robert Dillard',54000.0),('Noel Mcknight',57000.0),
+('Jamalia Mccormick',65000.0),('Emily Carrillo',66000.0),
+('Audra Dunn',69000.0),('Kyla Logan',70000.0),
+('Rinah Ellis',72000.0),('Jakeem Murphy',73000.0),
+('Elizabeth Cook',75000.0),('Kay Peterson',76000.0),
+('Ryder Waller',78000.0),('Driscoll Gallagher',98000.0),
+('Blythe Mclean',82000.0),('Xandra Harding',13000.0),
+('Lester Rogers',78000.0);
+

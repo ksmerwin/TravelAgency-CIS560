@@ -1,4 +1,7 @@
-﻿CREATE OR ALTER PROCEDURE Location.GetCities
+﻿/*
+	Gets a city given its id
+*/
+CREATE OR ALTER PROCEDURE Location.GetCities
 	@CityID INT
 AS
 

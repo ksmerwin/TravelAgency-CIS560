@@ -8,9 +8,19 @@ namespace DataModeling.Model
 {
     public class Restaurant
     {
+        /// <summary>
+        /// id of restaurant 
+        /// </summary>
         public int RestaurantID { get;  }
+
+        /// <summary>
+        /// name of restaurant
+        /// </summary>
         public string Name { get; }
 
+        /// <summary>
+        /// id of city
+        /// </summary>
         public int CityID { get; }
 
         public Restaurant(int restaurantID, string name, int cityID)
@@ -19,6 +29,11 @@ namespace DataModeling.Model
             Name = name;
             CityID = cityID;
         }
+
+        /// <summary>
+        /// restaurant properties's commas in between
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return $"RestaurantID: {RestaurantID}, Name: {Name}, CityID: {CityID}";

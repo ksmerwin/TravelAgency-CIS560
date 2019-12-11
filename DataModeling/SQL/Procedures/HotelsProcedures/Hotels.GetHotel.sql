@@ -1,3 +1,6 @@
+/*
+	Gets a hotel given its id
+*/
 CREATE OR ALTER PROCEDURE Hotels.GetHotel
 	@HotelID INT
 AS

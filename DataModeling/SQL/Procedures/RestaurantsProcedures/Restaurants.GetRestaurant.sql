@@ -1,4 +1,7 @@
-﻿CREATE OR ALTER PROCEDURE Restaurants.GetRestaurant
+﻿/*
+	Gets a restuarant given its id
+*/
+CREATE OR ALTER PROCEDURE Restaurants.GetRestaurant
 	@RestaurantID INT
 
 AS

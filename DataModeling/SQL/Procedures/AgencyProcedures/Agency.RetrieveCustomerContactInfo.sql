@@ -1,5 +1,6 @@
-﻿USE TravelAgency;
-GO
+﻿/*
+	Retrives the contact information of a customer
+*/
 CREATE OR ALTER PROCEDURE Agency.RetrieveCustomerContactInfo
 	@ContactID INT
 AS

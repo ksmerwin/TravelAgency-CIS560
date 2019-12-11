@@ -1,3 +1,6 @@
+/*
+	Gets a hotel reservation given its id
+*/
 CREATE OR ALTER PROCEDURE Hotels.GetHotelReservation
 	@ReservationID INT
 AS

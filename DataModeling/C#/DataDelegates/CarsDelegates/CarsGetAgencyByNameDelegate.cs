@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace DataModeling
 {
+    /// <summary>
+    /// Provides functionality for connecting to SQL procedure for getting a car agency given all info except its id
+    /// </summary>
     public class CarsGetAgencyByNameDelegate : DataReaderDelegate<CarRental>
     {
         private readonly string agencyName;

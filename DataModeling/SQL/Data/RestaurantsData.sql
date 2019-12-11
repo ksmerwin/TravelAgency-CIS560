@@ -23,7 +23,7 @@ VALUES ('Zorita Palmer Cafe',32),('Bernard Watts Cafe',33),('Joelle Stephenson C
 ('Tatiana Travis Kitchen',13),('Quail Harvey Kitchen',10),('Madonna Holden Kitchen',28),
 ('Hamish Mueller Kitchen',17),('Garth Wall Kitchen',20),('Ulysses Mcbride Kitchen',33),
 ('Haviva Patterson Kitchen',9),('Alan Ray Kitchen',12),('Hashim Levine Kitchen',7),
-('Byron Fox Kitchen',31),('Samuel Finch Kitchen',24),('TaShya Wheeler Kitchen',11),
+('Byron Fox Kitchen',31),('Samuel Finch Kitchen',24),('Tashya Wheeler Kitchen',11),
 ('Erich Mccormick Tacos',25),('Bevis Reynolds Tacos',8),('Lareina Lucas Tacos',15),
 ('Rhiannon Ewing Tacos',9),('Yetta Chaney Tacos',17),('Daphne Salinas Tacos',12),
 ('Whoopi Wilkinson Tacos',8),('Lane Fischer Tacos',29),('Kennedy Blevins Tacos',10),

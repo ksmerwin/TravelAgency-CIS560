@@ -1,3 +1,6 @@
+/*
+	Gets the boarding pass associated with the reservation ID
+*/
 CREATE OR ALTER PROCEDURE Airlines.GetBoardingPass
 	@ReservationID INT
 AS

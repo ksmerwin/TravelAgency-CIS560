@@ -6,9 +6,13 @@ using System.Text;
 using System.Threading.Tasks;
 using DataAccess;
 using DataModeling.Model;
+using System.Globalization;
 
 namespace DataModeling
 {
+    /// <summary>
+    /// Provides functionality for connecting to SQL procedure for age report
+    /// </summary>
     public class AgencyAgeReportDelegate : DataReaderDelegate<IReadOnlyList<string>>
     {
         public AgencyAgeReportDelegate() : base("Agency.AgeReport")
@@ -22,13 +26,13 @@ namespace DataModeling
 
             while (reader.Read())
             {
-                //CityID, CityName, Region, Country, CheapestHotel, 
-                //CheapestHotelPrice, CheapestAttraction, CheapestAttractionPrice,
-                //CheapestCarModelAgency, CheapestModel, CheapestModelPrice 
-                rows.Add($"{reader.GetString("AgeGroup")}, {reader.GetInt32("Count")}, " +
-                    $"{reader.GetString("AverageBudget")}, {reader.GetString("LowestBudget")}, " +
-                    $"{reader.GetString("HighestBudget")}, {reader.GetInt32("AverageAge")}, " +
-                    $"{reader.GetString("TripCount")}");
+                rows.Add($"{reader.GetString("AgeGroup")}," +
+                    $"{reader.GetInt32("Count")}," +
+                    $"${string.Format("{0:0.00}",reader.GetDouble("AverageBudget"))}," +
+                    $"${string.Format("{0:0.00}", reader.GetDouble("LowestBudget"))}," +
+                    $"${string.Format("{0:0.00}", reader.GetDouble("HighestBudget"))}," +
+                    $"{reader.GetInt32("AverageAge")}," +
+                    $"{reader.GetInt32("TripCount")}");
             }
             return rows;
         }

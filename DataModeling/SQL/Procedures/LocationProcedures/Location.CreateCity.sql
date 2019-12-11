@@ -1,4 +1,7 @@
-﻿CREATE OR ALTER PROCEDURE [Location].CreateCity
+﻿/*
+	Creates a new city
+*/
+CREATE OR ALTER PROCEDURE [Location].CreateCity
 	@CityID INT OUTPUT,
 	@CityName NVARCHAR(120),
 	@Region NVARCHAR(120),

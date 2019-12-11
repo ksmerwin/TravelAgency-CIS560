@@ -1,3 +1,6 @@
+/*
+	Gets the car rental reservation associated with the reservation ID
+*/
 CREATE OR ALTER PROCEDURE Cars.GetCarReservationInfo
 	@ReservationID INT
 AS

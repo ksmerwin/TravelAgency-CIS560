@@ -126,7 +126,7 @@ namespace UserInterface
             {
                 if(uxReservations.SelectedItem is TextBlock t)
                 {
-                    int reservationID = int.Parse(t.Text.Split(',')[0].Trim());
+                    int reservationID = int.Parse(t.Text.Split('\t')[1].Split(',')[0].Trim());
 
                     SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
                     executor.ExecuteNonQuery(new AgencyDeleteReservationDelegate(reservationID));
@@ -183,16 +183,7 @@ namespace UserInterface
                     t.Text = r.ReservationInfo();
                     uxReservations.Items.Add(t);
                 }
-            }
-
-            // Test code - delete when connected to SQL
-            //for(int i = 1; i < 11; i++)
-            //{
-            //    TextBlock t = new TextBlock();
-            //    t.Text = i + ", ReservationType, Information about reservation...";
-            //    uxReservations.Items.Add(t);
-            //}
-            
+            }          
             RefreshReservationList();
         }
 

@@ -1,4 +1,7 @@
-﻿CREATE OR ALTER PROCEDURE Attractions.GetAttractionTicket
+﻿/*
+	Gets the attraction ticket associated with the reservation ID
+*/
+CREATE OR ALTER PROCEDURE Attractions.GetAttractionTicket
 	@ReservationID INT
 AS
 

@@ -1,3 +1,6 @@
+/*
+	Creates a new hotel
+*/
 CREATE OR ALTER PROCEDURE Hotels.CreateHotel
 	@HotelID INT OUTPUT,
 	@Name NVARCHAR(120),

@@ -77,15 +77,12 @@
             <StackPanel Orientation="Horizontal">
                 <Label>Country</Label>
                 <TextBox Width="200" Name="uxCountry"></TextBox>
-                <Button>Search</Button>
                 <Label>Region</Label>
-                <TextBox Width="200" Name="uxRegion"></TextBox>
-                <Button>Search</Button>
+                <TextBox Width="270" Name="uxRegion"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label>City</Label>
                 <TextBox Width="250" Name="uxCity"></TextBox>
-                <Button>Search</Button>
                 <Label>Zipcode</Label>
                 <TextBox Width="255" Name="uxZipcode"></TextBox>
             </StackPanel>

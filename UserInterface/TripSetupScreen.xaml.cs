@@ -203,15 +203,7 @@ namespace UserInterface
                     t.Text = agent.AgentSimpleInfo;
                     uxAgents.Items.Add(t);
                 }
-            }                     
-
-            // Test code - delete when connected to SQL
-            //for(int i = 1; i < 16; i++)
-            //{
-            //    TextBlock t = new TextBlock();
-            //    t.Text = i + ", AgentName";
-            //    uxAgents.Items.Add(t);
-            //}
+            }                  
             RefreshAgentList();
         }
 
@@ -234,15 +226,7 @@ namespace UserInterface
                     t.Text = customer.CustomerSimpleInfo + ", " + contact.SimpleContactInfo;
                     uxCustomers.Items.Add(t);
                 }
-            }
-
-            // Test code - detele when connected to SQL
-            //for(int i = 1; i < 51; i++)
-            //{
-            //    TextBlock t = new TextBlock();
-            //    t.Text = i + ", CustomerName, CustomerInformation...";
-            //    uxCustomers.Items.Add(t);
-            //}
+            }            
             RefreshCustomerList();
         }
 

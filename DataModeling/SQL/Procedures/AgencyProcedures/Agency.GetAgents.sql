@@ -1,5 +1,6 @@
-﻿USE TravelAgency;
-GO
+﻿/*
+	Gets all agents
+*/
 CREATE OR ALTER PROCEDURE Agency.GetAgents
 AS
 

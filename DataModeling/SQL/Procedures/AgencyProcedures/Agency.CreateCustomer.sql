@@ -1,4 +1,7 @@
-﻿CREATE OR ALTER PROCEDURE Agency.CreateCustomer
+﻿/*
+	Creates a new customer given the necessary information
+*/
+CREATE OR ALTER PROCEDURE Agency.CreateCustomer
    @CustomerID INT OUTPUT,
    @Budget FLOAT,
    @Name NVARCHAR(120),

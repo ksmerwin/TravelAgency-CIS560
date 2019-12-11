@@ -8,6 +8,9 @@ namespace DataModeling.Model
 {
     public class Customer
     {
+        /// <summary>
+        /// returns id of customer
+        /// </summary>
         public int CustomerID { get; }
 
         public double Budget { get;  }

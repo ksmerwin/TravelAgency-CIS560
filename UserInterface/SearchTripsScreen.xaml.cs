@@ -31,6 +31,8 @@ namespace UserInterface
             InitializeComponent();
             this.connectionString = connectionString;
             LoadAllTrips();
+            uxListLabel.Text = Check.Format("Trip", 12, true) + Check.Format("Customer",26,true) + 
+                Check.Format("Agent", 20, true) + Check.Format("Date Created", 30, true);
         }
 
         /// <summary>
@@ -53,6 +55,7 @@ namespace UserInterface
             uxTrips.Items.Clear();
             LoadAllTrips();
 
+            //Check trip id filter
             if(uxTripID.Text != "")
             {
                 string message = "";
@@ -66,6 +69,7 @@ namespace UserInterface
                 }
             }
 
+            //Check if agent id filter
             if(uxAgentID.Text != "")
             {
                 string message = "";
@@ -79,6 +83,7 @@ namespace UserInterface
                 }
             }
 
+            //Check if customer filter
             if (uxCustomerName.Text != "")
             {
                 FilterByCustomerName(Check.FormatName(uxCustomerName.Text));
@@ -98,7 +103,7 @@ namespace UserInterface
                 if (uxTrips.SelectedItem is TextBlock)
                 {
                     TextBlock t = (TextBlock)uxTrips.SelectedItem;
-                    int tripID = int.Parse(t.Text.Split(',')[0].Trim());
+                    int tripID = int.Parse(t.Text.Split(' ')[0].Trim());
 
                     NavigationService.Navigate(new PlanTripScreen(connectionString, tripID));
                 }
@@ -126,7 +131,7 @@ namespace UserInterface
                 if(uxTrips.SelectedItem is TextBlock t)
                 {                    
                     int tripID;                  
-                    tripID = int.Parse(t.Text.Split(',')[0].Trim());
+                    tripID = int.Parse(t.Text.Split(' ')[0].Trim());
                     
                     SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
 
@@ -167,33 +172,12 @@ namespace UserInterface
                     Customer customer = executor.ExecuteReader(new AgencyGetCustomerDelegate(trip.CustomerID));
                     Agent agent = executor.ExecuteReader(new AgencyGetAgentDelegate(trip.AgentID));
                     TextBlock t = new TextBlock();
-                    t.Text = trip.TripID + ", " + 
-                        customer.Name + ", " + 
-                        customer.CustomerID + ", " + 
-                        agent.Name + ", " + 
-                        agent.AgentID + ", " + 
-                        trip.DateCreated;
+                    t.Text = $"{Check.Format(trip.TripID, 8, true)}{Check.Format(customer.CustomerID, 6, false)} - " +
+                        $"{Check.Format(customer.Name, 20, true)}" +
+                        $"{Check.Format(agent.AgentID, 8, false)} - {Check.Format(agent.Name, 20, true)}{Check.Format(trip.DateCreated, 30, true)}";
                     uxTrips.Items.Add(t);
                 }
             }
-
-            //Testing for code - delete after SQL connected
-            //for (int i = 1; i < 51; i++)
-            //{
-            //    TextBlock t = new TextBlock();
-            //    string cn = "Customer One";
-            //    if(i > 10)
-            //    {
-            //        cn = "Customer Two";
-            //    }
-            //    if(i > 25)
-            //    {
-            //        cn = "Customer Three";
-            //    }
-            //    t.Text = i + ", " + cn + ", " + i + ", AgentName, " + i + ", DateCreated";
-            //    uxTrips.Items.Add(t);
-            //}
-
             RefreshTripList();
         }
 
@@ -208,7 +192,7 @@ namespace UserInterface
                 object item = uxTrips.Items[i];
                 if(item is TextBlock t)
                 {
-                    int compareTripID = int.Parse(t.Text.Split(',')[0].Trim());
+                    int compareTripID = int.Parse(t.Text.Split(' ')[0].Trim());
                     if (compareTripID < tripID)
                     {
                         uxTrips.Items.Remove(item);
@@ -229,7 +213,7 @@ namespace UserInterface
                 object item = uxTrips.Items[i];
                 if (item is TextBlock t)
                 {
-                    int compareAgentID = int.Parse(t.Text.Split(',')[4].Trim());
+                    int compareAgentID = Check.GetNumberAtEndOfString(t.Text.Split('-')[1]);
                     if (compareAgentID != agentID)
                     {
                         uxTrips.Items.Remove(item);
@@ -251,7 +235,7 @@ namespace UserInterface
                 object item = uxTrips.Items[i];
                 if (item is TextBlock t)
                 {
-                    if (!t.Text.Split(',')[1].Trim().Contains(Check.FormatName(customerName)))
+                    if (!t.Text.Split('-')[1].Trim().Contains(Check.FormatName(customerName)))
                     {
                         uxTrips.Items.Remove(item);
                         i--;

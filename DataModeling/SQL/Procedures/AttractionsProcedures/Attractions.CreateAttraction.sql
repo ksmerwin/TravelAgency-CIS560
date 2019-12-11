@@ -1,4 +1,7 @@
-﻿CREATE OR ALTER PROCEDURE Attractions.CreateAttraction
+﻿/*
+	Creates a new attraction
+*/
+CREATE OR ALTER PROCEDURE Attractions.CreateAttraction
 	@Name NVARCHAR(120),
 	@CityID INT,
 	@AttractionID INT OUTPUT

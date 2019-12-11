@@ -24,26 +24,26 @@
                     <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Visible"/>
                 </Style>
             </StackPanel.Resources>
-            <Label FontSize="20" Name="uxReportListLabel">Columns, , , ,</Label>
-            <ListBox Name="uxReportList">
+            <Label FontSize="14" Name="uxReportListLabel" FontFamily="Courier New"></Label>
+            <ListBox Name="uxReportList" FontFamily="Courier New">
                 
             </ListBox>
         </StackPanel>
         <StackPanel Grid.Row="3" HorizontalAlignment="Center">
             <StackPanel.Resources>
                 <Style TargetType="Button">
-                    <Setter Property="Height" Value="70"/>
-                    <Setter Property="Width" Value="220"/>
+                    <Setter Property="Height" Value="80"/>
+                    <Setter Property="Width" Value="240"/>
                     <Setter Property="FontSize" Value="27"/>
                     <Setter Property="Margin" Value="10,10,10,10"/>
                 </Style>
             </StackPanel.Resources>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Click="Report1_Click">Report 1</Button>
-                <Button Click="Report2_Click">Report 2</Button>
+                <Button Click="MonthlySalesReport_Click">Monthly Report</Button>
+                <Button Click="TopTenAttractions_Click">Top 10 Attrations</Button>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Click="Report3_Click">Report 3</Button>
+                <Button Click="AgeReport_Click">Age Groups</Button>
                 <Button Click="CheaperOptions_Click">Cheaper Options</Button>
                 <Button Click="MainMenu_Click">Main Menu</Button>
             </StackPanel>

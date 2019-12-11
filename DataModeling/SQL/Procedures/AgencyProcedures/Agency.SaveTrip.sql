@@ -1,4 +1,7 @@
-﻿CREATE OR ALTER PROCEDURE Agency.SaveTrip
+﻿/*
+	Given information about a trip, it updates that information if matched, if not, it creates a new trip
+*/
+CREATE OR ALTER PROCEDURE Agency.SaveTrip
    @TripID INT,
    @CustomerID INT,
    @IsDeleted BIT,
@@ -24,6 +27,6 @@ USING (
 		DateCreated = S.DateCreated,
 		AgentID = S.AgentID
 	WHEN NOT MATCHED THEN
-	INSERT(TripID, CustomerID, IsDeleted, DateCreated, AgentID)
-	VALUES (S.TripID, S.CustomerID, S.IsDeleted, S.DateCreated, S.AgentID);
+	INSERT(CustomerID, IsDeleted, DateCreated, AgentID)
+	VALUES (S.CustomerID, S.IsDeleted, S.DateCreated, S.AgentID);
 GO

@@ -7,6 +7,9 @@ using System.Data.SqlClient;
 
 namespace DataModeling
 {
+    /// <summary>
+    /// Provides functionality for connecting to SQL procedure for getting a car rental agency given its id
+    /// </summary>
     public class CarsGetAgencyByIDDelegate : DataReaderDelegate<CarRental>
     {
         private readonly int carRentalID;

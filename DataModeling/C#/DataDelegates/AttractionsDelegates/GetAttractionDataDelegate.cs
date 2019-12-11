@@ -5,6 +5,9 @@ using DataModeling.Model;
 
 namespace DataModeling
 {
+    /// <summary>
+    /// Provides functionality for connecting to SQL procedure for getting an attraction given its id
+    /// </summary>
     public class GetAttractionDataDelegate : DataReaderDelegate<Attraction>
     {
         private int attractionID;

@@ -8,14 +8,29 @@ namespace DataModeling.Model
 {
     public class Trip
     {
+        /// <summary>
+        /// gets trip ID
+        /// </summary>
         public int TripID { get; }
 
+        /// <summary>
+        /// gets customer ID
+        /// </summary>
         public int CustomerID { get; }
 
+        /// <summary>
+        /// gets whether trip was deleted
+        /// </summary>
         public bool IsDeleted { get; }
 
+        /// <summary>
+        /// gets date trip was created
+        /// </summary>
         public DateTimeOffset DateCreated { get; }
 
+        /// <summary>
+        /// gets agent ID
+        /// </summary>
         public int AgentID { get; }
 
         public Trip(int tripID, int customerID, bool isDeleted, DateTimeOffset dateCreated, int agentID)
@@ -37,6 +52,10 @@ namespace DataModeling.Model
             IsDeleted = false;
         }
 
+        /// <summary>
+        /// returns trip object with commas in between properties
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             StringBuilder result = new StringBuilder();

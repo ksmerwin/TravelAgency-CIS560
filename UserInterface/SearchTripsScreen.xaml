@@ -25,8 +25,8 @@
                     <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Visible"/>
                 </Style>
             </StackPanel.Resources>
-            <TextBlock FontSize="15" Margin="5">TripID, Customer Name, CustomerID, AgentName, AgentID, Date Created</TextBlock>
-            <ListBox Name="uxTrips">
+            <TextBlock FontSize="15" Margin="5" Name="uxListLabel" FontFamily="Courier New">TripID - Customer - Agent - Date Created</TextBlock>
+            <ListBox Name="uxTrips" FontFamily="Courier New">
                 
             </ListBox>
         </StackPanel>

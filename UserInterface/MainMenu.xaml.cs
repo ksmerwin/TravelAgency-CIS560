@@ -25,6 +25,10 @@ namespace UserInterface
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Constructor initializes database and server given a connection string
+        /// </summary>
+        /// <param name="connectionString"></param>
         public MainMenu(string connectionString)
         {
             InitializeComponent();

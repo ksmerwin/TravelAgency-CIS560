@@ -1,3 +1,6 @@
+/*
+	Creates a new flight
+*/
 CREATE OR ALTER PROCEDURE Airlines.CreateFlight
 	@FlightID INT OUTPUT,
 	@AirlineName NVARCHAR(120),
